@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sarathi — Web Developer | Building Digital Experiences</title>
+  <meta name="description"
+    content="Sarathi is a web developer based in India, focused on building fast, responsive and thoughtful digital experiences using React, WordPress, and modern web technologies." />
+  <meta property="og:title" content="Sarathi — Web Developer" />
+  <meta property="og:description" content="Building fast, responsive and thoughtful digital experiences." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="index.css" />
+
+  <!-- Lenis smooth scroll -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       CUSTOM CURSOR
+  ══════════════════════════════════════════════════════════ -->
+  <div id="cursor" aria-hidden="true">
+    <span id="cursor-label">VIEW</span>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════════════════════════════ -->
+  <header class="nav" id="nav" role="banner">
+    <div class="nav__inner">
+
+      <a href="#hero" class="nav__logo" aria-label="Sarathi — back to top">
+        SARATHI<span class="dot">.</span>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <ul class="nav__links" role="list">
+          <li><a href="#about" data-section="about">ABOUT</a></li>
+          <li><a href="#skills" data-section="skills">SKILLS</a></li>
+          <li><a href="#projects" data-section="projects">WORK</a></li>
+          <li><a href="#experience" data-section="experience">EXPERIENCE</a></li>
+          <li><a href="#contact" data-section="contact">CONTACT</a></li>
+        </ul>
+      </nav>
+
+      <button class="nav__burger" id="nav-burger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- Mobile fullscreen menu -->
+  <div class="nav__mobile-menu" id="mobile-menu" aria-hidden="true">
+    <nav aria-label="Mobile navigation">
+      <ul class="nav__mobile-links" role="list">
+        <li><a href="#about" class="mobile-nav-link">About</a></li>
+        <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+        <li><a href="#projects" class="mobile-nav-link">Work</a></li>
+        <li><a href="#experience" class="mobile-nav-link">Experience</a></li>
+        <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+      </ul>
+    </nav>
+    <p class="nav__mobile-bottom">Sarathi &copy; 2026</p>
+  </div>
+
+  <main>
+
+    <!-- ══════════════════════════════════════════════════════
+         HERO
+    ══════════════════════════════════════════════════════════ -->
+    <section class="hero" id="hero" aria-labelledby="hero-headline">
+      <div class="container" style="display: contents;">
+
+        <div class="hero__left container" style="width: auto; padding-left: clamp(24px, 4vw, 80px);">
+
+          <!-- Meta row -->
+          <div class="hero__meta" id="hero-meta">
+            <span class="hero__role-label">Web Developer</span>
+            <span class="hero__role-sep" aria-hidden="true"></span>
+            <span class="hero__section-num">01 / 09</span>
+          </div>
+
+          <!-- Headline -->
+          <h1 class="hero__headline" id="hero-headline">
+            <span class="word-wrap"><span class="word-inner">BUILDING</span></span>
+            <span class="word-wrap"><span class="word-inner">DIGITAL</span></span>
+            <span class="word-wrap"><span class="word-inner"
+                style="color: var(--text-secondary);">EXPERIENCES.</span></span>
+          </h1>
+
+          <!-- Description -->
+          <p class="hero__desc" id="hero-desc">
+            I'm Sarathi, a web developer focused on building fast,
+            responsive and thoughtful digital experiences that people
+            actually enjoy using.
+          </p>
+
+          <!-- CTAs -->
+          <div class="hero__ctas" id="hero-ctas">
+            <div class="magnetic-wrap">
+              <a href="#projects" class="btn-primary" id="cta-work">
+                <span>VIEW MY WORK</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+            <a href="#contact" class="btn-ghost">LET'S TALK</a>
+          </div>
+
+          <!-- Scroll indicator -->
+          <div class="hero__scroll-indicator" id="scroll-indicator" aria-hidden="true">
+            <div class="hero__scroll-line"></div>
+            <span class="hero__scroll-text">Scroll</span>
+          </div>
+
+        </div>
+
+        <!-- Portrait -->
+        <div class="hero__right" id="hero-right">
+          <div class="hero__portrait-wrap" id="portrait-wrap">
+            <img src="/assets/sarathi_portrait.png" alt="Sarathi, Web Developer — professional portrait"
+              class="hero__portrait" id="hero-portrait" loading="eager" fetchpriority="high" />
+            <div class="hero__portrait-accent" aria-hidden="true"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         ABOUT
+    ══════════════════════════════════════════════════════════ -->
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div class="container">
+
+        <div class="section-label" aria-hidden="true">
+          <span class="section-label__num">02</span>
+          <span class="section-label__line"></span>
+          <span class="section-label__text">About</span>
+        </div>
+
+        <!-- Large editorial statement — words split by JS -->
+        <div class="about__statement" id="about-statement" aria-label="About Sarathi">
+          I BUILD DIGITAL EXPERIENCES THAT ARE SIMPLE TO USE, HARD TO IGNORE.
+        </div>
+
+        <div class="about__bottom">
+
+          <p class="about__bio" id="about-title">
+            I'm a web developer who enjoys turning ideas into fast, responsive
+            and engaging websites and applications. I care deeply about the
+            craft — clean code, smart structure, and interactions that feel
+            natural.
+          </p>
+
+          <div class="about__details" aria-label="Personal details">
+            <div class="about__detail-item">
+              <span class="about__detail-dot" aria-hidden="true"></span>
+              <span class="about__detail-label">Location</span>
+              <span class="about__detail-val">Based in India</span>
+            </div>
+            <div class="about__detail-item">
+              <span class="about__detail-dot" aria-hidden="true"></span>
+              <span class="about__detail-label">Role</span>
+              <span class="about__detail-val">Web Developer</span>
+            </div>
+            <div class="about__detail-item">
+              <span class="about__detail-dot" aria-hidden="true"></span>
+              <span class="about__detail-label">Availability</span>
+              <span class="about__detail-val" style="color: var(--red-accent);">Open to Freelance</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         SKILLS / CAPABILITIES
+    ══════════════════════════════════════════════════════════ -->
+    <section class="capabilities" id="skills" aria-labelledby="skills-title">
+      <div class="container capabilities__header">
+        <div class="section-label" aria-hidden="true">
+          <span class="section-label__num">03</span>
+          <span class="section-label__line"></span>
+          <span class="section-label__text">Capabilities</span>
+        </div>
+        <h2 class="capabilities__title" id="skills-title">WHAT I WORK WITH</h2>
+      </div>
+
+      <div class="capabilities__marquee-wrap" aria-label="Technologies I work with">
+
+        <!-- Row 1 — scroll left -->
+        <div class="marquee-row" data-direction="left" aria-label="Frontend technologies">
+          <div class="marquee-track" id="marquee-1">
+            <span class="marquee-item" tabindex="0">HTML</span>
+            <span class="marquee-item" tabindex="0">CSS</span>
+            <span class="marquee-item" tabindex="0">JavaScript</span>
+            <span class="marquee-item" tabindex="0">React</span>
+            <span class="marquee-item" tabindex="0">HTML</span>
+            <span class="marquee-item" tabindex="0">CSS</span>
+            <span class="marquee-item" tabindex="0">JavaScript</span>
+            <span class="marquee-item" tabindex="0">React</span>
+            <span class="marquee-item" tabindex="0">HTML</span>
+            <span class="marquee-item" tabindex="0">CSS</span>
+            <span class="marquee-item" tabindex="0">JavaScript</span>
+            <span class="marquee-item" tabindex="0">React</span>
+          </div>
+        </div>
+
+        <!-- Row 2 — scroll right -->
+        <div class="marquee-row" data-direction="right" aria-label="CMS and utility technologies">
+          <div class="marquee-track" id="marquee-2">
+            <span class="marquee-item" tabindex="0">PHP</span>
+            <span class="marquee-item" tabindex="0">WordPress</span>
+            <span class="marquee-item" tabindex="0">Tailwind CSS</span>
+            <span class="marquee-item" tabindex="0">PHP</span>
+            <span class="marquee-item" tabindex="0">WordPress</span>
+            <span class="marquee-item" tabindex="0">Tailwind CSS</span>
+            <span class="marquee-item" tabindex="0">PHP</span>
+            <span class="marquee-item" tabindex="0">WordPress</span>
+            <span class="marquee-item" tabindex="0">Tailwind CSS</span>
+            <span class="marquee-item" tabindex="0">PHP</span>
+            <span class="marquee-item" tabindex="0">WordPress</span>
+            <span class="marquee-item" tabindex="0">Tailwind CSS</span>
+          </div>
+        </div>
+
+        <!-- Row 3 — scroll left -->
+        <div class="marquee-row" data-direction="left" aria-label="Backend technologies">
+          <div class="marquee-track" id="marquee-3">
+            <span class="marquee-item" tabindex="0">Python</span>
+            <span class="marquee-item" tabindex="0">SQL</span>
+            <span class="marquee-item" tabindex="0">Backend Dev</span>
+            <span class="marquee-item" tabindex="0">Git</span>
+            <span class="marquee-item" tabindex="0">Python</span>
+            <span class="marquee-item" tabindex="0">SQL</span>
+            <span class="marquee-item" tabindex="0">Backend Dev</span>
+            <span class="marquee-item" tabindex="0">Git</span>
+            <span class="marquee-item" tabindex="0">Python</span>
+            <span class="marquee-item" tabindex="0">SQL</span>
+            <span class="marquee-item" tabindex="0">Backend Dev</span>
+            <span class="marquee-item" tabindex="0">Git</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         PROJECTS
+    ══════════════════════════════════════════════════════════ -->
+    <section class="projects" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+
+        <div class="projects__header">
+          <div>
+            <div class="section-label" aria-hidden="true">
+              <span class="section-label__num">04</span>
+              <span class="section-label__line"></span>
+              <span class="section-label__text">Selected Work</span>
+            </div>
+            <h2 class="projects__title" id="projects-title">SELECTED<br />PROJECTS</h2>
+          </div>
+          <span class="projects__count" aria-label="4 projects">04 Projects</span>
+        </div>
+
+        <!-- Project 01 -->
+        <article class="project-item" data-project="1">
+          <div class="project-img-wrap js-cursor-project">
+            <div class="project-img-clip" id="proj-clip-1">
+              <div class="project-placeholder proj-bg-1" aria-hidden="true">
+                <span style="opacity: 0.3; font-size: 10px; letter-spacing: 0.2em;">RIVERBIRD DIGITAL</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <span class="project-num">PROJECT 01</span>
+            <h3 class="project-name">Riverbird Digital</h3>
+            <p class="project-desc">
+              A full-featured digital agency website with custom animations,
+              CMS integration and a performance-first architecture. Built
+              to showcase services and convert visitors into clients.
+            </p>
+            <div class="project-stack">
+              <span class="project-tag">React</span>
+              <span class="project-tag">WordPress</span>
+              <span class="project-tag">PHP</span>
+              <span class="project-tag">CSS</span>
+            </div>
+            <div class="project-footer">
+              <span class="project-year">2025</span>
+              <a href="#" class="project-link" aria-label="View Riverbird Digital project">
+                VIEW PROJECT <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 02 (reversed) -->
+        <article class="project-item reverse" data-project="2">
+          <div class="project-img-wrap js-cursor-project">
+            <div class="project-img-clip" id="proj-clip-2">
+              <div class="project-placeholder proj-bg-2" aria-hidden="true">
+                <span style="opacity: 0.3; font-size: 10px; letter-spacing: 0.2em;">SHOPEDGE</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <span class="project-num">PROJECT 02</span>
+            <h3 class="project-name">ShopEdge</h3>
+            <p class="project-desc">
+              A modern e-commerce storefront with a focus on conversion rate
+              optimisation, fast load times and a seamless mobile checkout
+              experience. WooCommerce backend with custom frontend.
+            </p>
+            <div class="project-stack">
+              <span class="project-tag">WordPress</span>
+              <span class="project-tag">WooCommerce</span>
+              <span class="project-tag">JavaScript</span>
+              <span class="project-tag">PHP</span>
+            </div>
+            <div class="project-footer">
+              <span class="project-year">2025</span>
+              <a href="#" class="project-link" aria-label="View ShopEdge project">
+                VIEW PROJECT <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 03 -->
+        <article class="project-item" data-project="3">
+          <div class="project-img-wrap js-cursor-project">
+            <div class="project-img-clip" id="proj-clip-3">
+              <div class="project-placeholder proj-bg-3" aria-hidden="true">
+                <span style="opacity: 0.3; font-size: 10px; letter-spacing: 0.2em;">DASHMETRICS</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <span class="project-num">PROJECT 03</span>
+            <h3 class="project-name">DashMetrics</h3>
+            <p class="project-desc">
+              A real-time analytics dashboard for small businesses. Clean
+              data visualisations, filterable reports and a responsive
+              layout built with React and Tailwind CSS.
+            </p>
+            <div class="project-stack">
+              <span class="project-tag">React</span>
+              <span class="project-tag">Tailwind CSS</span>
+              <span class="project-tag">JavaScript</span>
+              <span class="project-tag">SQL</span>
+            </div>
+            <div class="project-footer">
+              <span class="project-year">2024</span>
+              <a href="#" class="project-link" aria-label="View DashMetrics project">
+                VIEW PROJECT <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 04 (reversed) -->
+        <article class="project-item reverse" data-project="4">
+          <div class="project-img-wrap js-cursor-project">
+            <div class="project-img-clip" id="proj-clip-4">
+              <div class="project-placeholder proj-bg-4" aria-hidden="true">
+                <span style="opacity: 0.3; font-size: 10px; letter-spacing: 0.2em;">PORTFOLIO V1</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <span class="project-num">PROJECT 04</span>
+            <h3 class="project-name">Portfolio v1</h3>
+            <p class="project-desc">
+              My previous personal portfolio — a minimal, dark-themed
+              website built entirely with HTML, CSS and vanilla JavaScript.
+              Focused on performance and clean typography.
+            </p>
+            <div class="project-stack">
+              <span class="project-tag">HTML</span>
+              <span class="project-tag">CSS</span>
+              <span class="project-tag">JavaScript</span>
+            </div>
+            <div class="project-footer">
+              <span class="project-year">2024</span>
+              <a href="#" class="project-link" aria-label="View Portfolio v1 project">
+                VIEW PROJECT <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         EXPERIENCE
+    ══════════════════════════════════════════════════════════ -->
+    <section class="experience" id="experience" aria-labelledby="exp-title">
+      <div class="container">
+
+        <div class="experience__header">
+          <div class="section-label" aria-hidden="true">
+            <span class="section-label__num">05</span>
+            <span class="section-label__line"></span>
+            <span class="section-label__text">Experience</span>
+          </div>
+          <h2 class="experience__title" id="exp-title">THE PATH<br />SO FAR</h2>
+        </div>
+
+        <div class="experience__timeline" role="list" aria-label="Work experience">
+
+          <div class="experience__line-fill" id="exp-line" aria-hidden="true"></div>
+
+          <article class="exp-item active" role="listitem">
+            <p class="exp-year" aria-label="Year: 2025">2025</p>
+            <h3 class="exp-role">Web Developer</h3>
+            <p class="exp-company">Riverbird Digitel Solutions</p>
+            <p class="exp-desc">
+              Building and maintaining client websites using WordPress, React
+              and PHP. Responsible for frontend architecture, performance
+              optimisation and delivering responsive, accessible interfaces
+              that meet business objectives.
+            </p>
+          </article>
+
+          <article class="exp-item" role="listitem">
+            <p class="exp-year" aria-label="Year: 2023">2023</p>
+            <h3 class="exp-role">Freelance Web Developer</h3>
+            <p class="exp-company">Independent</p>
+            <p class="exp-desc">
+              Designed and developed websites for local businesses and
+              startups. Built custom WordPress themes, e-commerce stores
+              and landing pages with a focus on conversion and usability.
+            </p>
+          </article>
+
+          <article class="exp-item" role="listitem">
+            <p class="exp-year" aria-label="Year: 2022">2022</p>
+            <h3 class="exp-role">Web Development</h3>
+            <p class="exp-company">Self-directed Learning</p>
+            <p class="exp-desc">
+              Began formal study of web development — mastering HTML, CSS,
+              JavaScript and PHP. Built personal projects and contributed to
+              open-source repositories to sharpen skills.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         SERVICES
+    ══════════════════════════════════════════════════════════ -->
+    <section class="services" id="services" aria-labelledby="services-title">
+      <div class="container">
+
+        <div class="services__header">
+          <div class="section-label" aria-hidden="true">
+            <span class="section-label__num">06</span>
+            <span class="section-label__line"></span>
+            <span class="section-label__text">What I Do</span>
+          </div>
+          <h2 class="services__title" id="services-title">I TURN IDEAS INTO DIGITAL PRODUCTS.</h2>
+        </div>
+
+        <div role="list" aria-label="Services offered">
+
+          <div class="service-row reveal-up" role="listitem">
+            <span class="service-num" aria-hidden="true">01</span>
+            <div class="service-body">
+              <h3 class="service-title">Website Development</h3>
+              <p class="service-desc">
+                Modern responsive websites with clean architecture, semantic
+                HTML and smooth interactions. Built for speed, accessibility
+                and long-term maintainability.
+              </p>
+            </div>
+            <span class="service-arrow" aria-hidden="true">+</span>
+          </div>
+
+          <div class="service-row reveal-up" role="listitem">
+            <span class="service-num" aria-hidden="true">02</span>
+            <div class="service-body">
+              <h3 class="service-title">WordPress Development</h3>
+              <p class="service-desc">
+                Custom WordPress websites, themes and business websites built
+                to your exact specifications — no page-builder bloat.
+                Performant, secure and easy to manage.
+              </p>
+            </div>
+            <span class="service-arrow" aria-hidden="true">+</span>
+          </div>
+
+          <div class="service-row reveal-up" role="listitem">
+            <span class="service-num" aria-hidden="true">03</span>
+            <div class="service-body">
+              <h3 class="service-title">Frontend Development</h3>
+              <p class="service-desc">
+                Interactive interfaces using HTML, CSS, JavaScript, React and
+                Tailwind CSS. Pixel-precise implementation from design files
+                with attention to micro-interactions.
+              </p>
+            </div>
+            <span class="service-arrow" aria-hidden="true">+</span>
+          </div>
+
+          <div class="service-row reveal-up" role="listitem">
+            <span class="service-num" aria-hidden="true">04</span>
+            <div class="service-body">
+              <h3 class="service-title">Web Applications</h3>
+              <p class="service-desc">
+                Functional web applications with frontend and backend
+                integration. From dashboards to data-driven tools — built
+                with PHP, Python or Node depending on what the project needs.
+              </p>
+            </div>
+            <span class="service-arrow" aria-hidden="true">+</span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         CONTACT
+    ══════════════════════════════════════════════════════════ -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+
+        <div class="section-label" aria-hidden="true">
+          <span class="section-label__num">07</span>
+          <span class="section-label__line"></span>
+          <span class="section-label__text">Contact</span>
+        </div>
+
+        <div class="contact__inner">
+
+          <div class="contact__left">
+            <h2 class="contact__headline" id="contact-title">
+              <span class="line-mask"><span class="line-inner">LET'S BUILD</span></span>
+              <span class="line-mask"><span class="line-inner">SOMETHING</span></span>
+              <span class="line-mask"><span class="line-inner"
+                  style="color: var(--red-accent);">MEANINGFUL.</span></span>
+            </h2>
+
+            <div class="contact__cta-wrap">
+              <div class="magnetic-wrap" id="contact-magnetic">
+                <a href="mailto:sarathi@example.com" class="btn-contact" id="btn-contact">
+                  START A CONVERSATION <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact__right">
+            <div class="contact__email-block reveal-up">
+              <p class="contact__email-label">Email</p>
+              <a href="mailto:sarathi@example.com" class="contact__email">
+                sarathi@example.com
+              </a>
+            </div>
+
+            <div class="reveal-up">
+              <p class="contact__email-label" style="margin-bottom: 16px;">Find me online</p>
+              <div class="contact__socials">
+                <a href="#" class="social-link" aria-label="GitHub profile">GitHub</a>
+                <a href="#" class="social-link" aria-label="LinkedIn profile">LinkedIn</a>
+                <a href="#" class="social-link" aria-label="Instagram profile">Instagram</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+
+        <span class="footer__logo">SARATHI<span class="dot">.</span></span>
+
+        <p class="footer__tagline" aria-label="Designing, developing, learning">
+          DESIGNING &nbsp;·&nbsp; DEVELOPING &nbsp;·&nbsp; LEARNING
+        </p>
+
+        <div class="footer__right">
+          <span class="footer__copy">&copy; 2026 SARATHI</span>
+          <button class="footer__top" id="back-to-top" aria-label="Back to top">
+            BACK TO TOP ↑
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════════════════
+       JAVASCRIPT
+  ══════════════════════════════════════════════════════════ -->
+  <script>
+    (() => {
+      'use strict';
+
+      /* ── REDUCED MOTION CHECK ─────────────────────────────── */
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      /* ── LENIS SMOOTH SCROLL ──────────────────────────────── */
+      const lenis = new Lenis({
+        lerp: 0.08,
+        smoothWheel: true,
+        wheelMultiplier: 0.9,
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // Integrate Lenis with GSAP ScrollTrigger
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+      gsap.ticker.lagSmoothing(0);
+
+      /* ── GSAP REGISTER ────────────────────────────────────── */
+      gsap.registerPlugin(ScrollTrigger);
+
+      /* ── HELPERS ──────────────────────────────────────────── */
+      const isMobile = () => window.innerWidth < 768;
+      const isTouch = () => window.matchMedia('(pointer: coarse)').matches;
+
+      // Split text into word spans
+      function splitWords(el, accentWords = []) {
+        const text = el.textContent.trim();
+        const words = text.split(/\s+/);
+        el.innerHTML = words.map(w => {
+          const isAccent = accentWords.some(a => w.toUpperCase().includes(a.toUpperCase()));
+          const cls = isAccent ? 'word accent-word' : 'word';
+          return `<span class="${cls}">${w}</span>`;
+        }).join(' ');
+        return el.querySelectorAll('.word');
+      }
+
+      /* ══════════════════════════════════════════════════════
+         STAGE 01 — ENTRANCE SEQUENCE
+      ══════════════════════════════════════════════════════════ */
+      function initEntrance() {
+        if (prefersReduced) {
+          // Skip animations for reduced motion
+          document.querySelectorAll('.word-inner').forEach(el => {
+            el.style.transform = 'none';
+          });
+          gsap.set(['#hero-meta', '#hero-desc', '#hero-ctas', '#scroll-indicator'], {
+            opacity: 1, y: 0
+          });
+          gsap.set('#portrait-wrap', { clipPath: 'inset(0% 0 0 0)' });
+          gsap.set('#hero-portrait', { scale: 1 });
+          return;
+        }
+
+        const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+        // 1. Background fade (body already visible, just ensure)
+        // 2. Nav
+        tl.from('.nav', { y: -24, opacity: 0, duration: 1 }, 0.1)
+
+          // 3. Role label slides up
+          .to('#hero-meta', { opacity: 1, y: 0, duration: 0.8 }, 0.4)
+
+          // 4. Headline lines reveal
+          .to('.hero__headline .word-inner', {
+            y: '0%',
+            duration: 1.1,
+            stagger: 0.12,
+            ease: 'expo.out',
+          }, 0.6)
+
+          // 5. Portrait clip reveal
+          .to('#portrait-wrap', {
+            clipPath: 'inset(0% 0 0 0)',
+            duration: 1.4,
+            ease: 'expo.out',
+          }, 0.7)
+
+          .to('#hero-portrait', {
+            scale: 1,
+            duration: 1.6,
+            ease: 'power2.out',
+          }, 0.7)
+
+          // 6. Description fades up
+          .to('#hero-desc', { opacity: 1, y: 0, duration: 0.9, ease: 'power2.out' }, 1.2)
+
+          // 7. CTAs appear
+          .to('#hero-ctas', { opacity: 1, y: 0, duration: 0.9, ease: 'power2.out' }, 1.45)
+
+          // 8. Scroll indicator
+          .to('#scroll-indicator', { opacity: 1, duration: 0.8 }, 1.8);
+      }
+
+      /* ══════════════════════════════════════════════════════
+         STAGE 02 — HERO SCROLL EXIT
+      ══════════════════════════════════════════════════════════ */
+      function initHeroScrollExit() {
+        if (prefersReduced) return;
+
+        const heroSection = document.querySelector('.hero');
+
+        gsap.to('.hero__left', {
+          y: -80,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: heroSection,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 1.2,
+          }
+        });
+
+        gsap.to('#hero-portrait', {
+          scale: 1.06,
+          opacity: 0.5,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: heroSection,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 1.5,
+          }
+        });
+
+        gsap.to('.hero__right', {
+          y: 40,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: heroSection,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 2,
+          }
+        });
+      }
+
+      /* ══════════════════════════════════════════════════════
+         STAGE 03 — ABOUT WORD REVEAL
+      ══════════════════════════════════════════════════════════ */
+      function initAboutReveal() {
+        const stmt = document.querySelector('#about-statement');
+        if (!stmt) return;
+
+        const accentList = ['SIMPLE', 'HARD', 'IGNORE'];
+        const words = splitWords(stmt, accentList);
+
+        if (prefersReduced) {
+          words.forEach(w => w.classList.add('active'));
+          return;
+        }
+
+        // Scroll-driven word reveal
+        ScrollTrigger.create({
+          trigger: stmt,
+          start: 'top 80%',
+          end: 'bottom 30%',
+          scrub: 0.8,
+          onUpdate: (self) => {
+            const progress = self.progress;
+            const count = Math.floor(progress * words.length * 1.2);
+            words.forEach((w, i) => {
+              if (i < count) w.classList.add('active');
+              else w.classList.remove('active');
+            });
+          }
+        });
+
+        // Detail items stagger
+        gsap.to('.about__detail-item', {
+          opacity: 1,
+          x: 0,
+          stagger: 0.15,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.about__details',
+            start: 'top 75%',
+          }
+        });
+      }
+
+      /* ══════════════════════════════════════════════════════
+         STAGE 04 — MARQUEE SKILL ROWS
+      ══════════════════════════════════════════════════════════ */
+      function initMarquee() {
+        const rows = document.querySelectorAll('.marquee-row');
+        const speeds = [0.6, 0.45, 0.55]; // px per tick
+        const state = [];
+
+        rows.forEach((row, i) => {
+          const track = row.querySelector('.marquee-track');
+          const dir = row.dataset.direction === 'right' ? 1 : -1;
+          // Duplicate track for seamless loop
+          const clone = track.cloneNode(true);
+          row.appendChild(clone);
+
+          state.push({ track, clone, x: 0, dir, speed: speeds[i], paused: false });
+
+          // Pause on row hover
+          row.addEventListener('mouseenter', () => { state[i].paused = true; });
+          row.addEventListener('mouseleave', () => { state[i].paused = false; });
+        });
+
+        // Scroll velocity influence
+        let scrollVelocity = 0;
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+          const current = window.scrollY;
+          scrollVelocity = (current - lastScroll) * 0.04;
+          lastScroll = current;
+        }, { passive: true });
+
+        if (prefersReduced) return;
+
+        let animId;
+        function tick() {
+          scrollVelocity *= 0.92; // dampen
+
+          state.forEach(s => {
+            if (s.paused) return;
+            const velocityBoost = scrollVelocity * s.speed * 0.5;
+            s.x += (s.speed + Math.abs(velocityBoost)) * s.dir;
+
+            const trackW = s.track.scrollWidth;
+            if (s.dir < 0 && s.x < -trackW) s.x += trackW;
+            if (s.dir > 0 && s.x > trackW) s.x -= trackW;
+
+            s.track.style.transform = `translate3d(${s.x}px, 0, 0)`;
+            s.clone.style.transform = `translate3d(${s.x + trackW * s.dir * -1}px, 0, 0)`;
+          });
+
+          animId = requestAnimationFrame(tick);
+        }
+
+        // Only animate when section is visible
+        ScrollTrigger.create({
+          trigger: '#skills',
+          start: 'top bottom',
+          end: 'bottom top',
+          onEnter: () => { cancelAnimationFrame(animId); tick(); },
+          onLeave: () => cancelAnimationFrame(animId),
+          onEnterBack: () => { cancelAnimationFrame(animId); tick(); },
+          onLeaveBack: () => cancelAnimationFrame(animId),
+        });
+      }
+
+      /* ══════════════════════════════════════════════════════
+         STAGE 05 — PROJECTS REVEAL
+      ══════════════════════════════════════════════════════════ */
+      function initProjects() {
+        const items = document.querySelectorAll('.project-item');
+
+        items.forEach((item, i) => {
+          const clip = item.querySelector('.project-img-clip');
+          const content = item.querySelectorAll(
+            '.project-num, .project-name, .project-desc, .project-stack, .project-footer'
+          );
+
+          if (prefersReduced) {
+            if (clip) clip.style.clipPath = 'inset(0% 0 0 0)';
+            return;
+          }
+
+          // Image clip reveal
+          if (clip) {
+            gsap.to(clip, {
+              clipPath: 'inset(0% 0 0 0)',
+              duration: 1.3,
+              ease: 'expo.out',
+              scrollTrigger: {
+                trigger: item,
+                start: 'top 80%',
+              }
+            });
+          }
+
+          // Content stagger
+          gsap.from(content, {
+            y: 28,
+            opacity: 0,
+            stagger: 0.1,
+            duration: 0.85,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: item,
+              start: 'top 70%',
+            }
+          });
+        });
+      }
+
+      /* ══════════════════════════════════════════════════════
+         STAGE 06 — EXPERIENCE TIMELINE
+      ══════════════════════════════════════════════════════════ */
+      function initExperience() {
+        const items = document.querySelectorAll('.exp-item');
+        const lineFill = document.querySelector('#exp-line');
+
+        if (prefersReduced) {
+          items.forEach(it => it.classList.add('active'));
+          return;
+        }
+
+        // Animate line fill on scroll
+        gsap.to(lineFill, {
+          height: '100%',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '.experience__timeline',
+            start: 'top 70%',
+            end: 'bottom 30%',
+            scrub: 1,
+          }
+        });
+
+        // Activate items progressively
+        items.forEach((item, i) => {
+          gsap.from(item, {
+            opacity: 0.2,
+            x: 24,
+            duration: 0.8,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: item,
+              start: 'top 70%',
+              onEnter: () => {
+                items.forEach(it => it.classList.remove('active'));
+                item.classList.add('active');
+              },
+              onEnterBack: () => {
+                items.forEach(it => it.classList.remove('active'));
+                item.classList.add('active');
+              }
+            }
+          });
+        });
+      }
+
+      /* ══════════════════════════════════════════════════════
+         STAGE 07 — SERVICES REVEAL
+      ══════════════════════════════════════════════════════════ */
+      function initServices() {
+        const rows = document.querySelectorAll('.service-row');
+        if (prefersReduced) return;
+
+        rows.forEach((row, i) => {
+          gsap.to(row, {
+            opacity: 1,
+            y: 0,
+            duration: 0.75,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: row,
+              start: 'top 82%',
+            }
+          });
+        });
+      }
+
+      /* ══════════════════════════════════════════════════════
+         STAGE 08 — CONTACT REVEAL
+      ══════════════════════════════════════════════════════════ */
+      function initContact() {
+        const lines = document.querySelectorAll('.contact__headline .line-inner');
+        const revealEls = document.querySelectorAll('.contact .reveal-up');
+
+        if (prefersReduced) {
+          lines.forEach(l => { l.style.transform = 'none'; l.style.opacity = 1; });
+          revealEls.forEach(el => { el.style.opacity = 1; el.style.transform = 'none'; });
+          return;
+        }
+
+        gsap.set(lines, { y: '110%' });
+
+        gsap.to(lines, {
+          y: '0%',
+          stagger: 0.14,
+          duration: 1.1,
+          ease: 'expo.out',
+          scrollTrigger: {
+            trigger: '.contact',
+            start: 'top 65%',
+          }
+        });
+
+        gsap.to(revealEls, {
+          opacity: 1,
+          y: 0,
+          stagger: 0.15,
+          duration: 0.85,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.contact__right',
+            start: 'top 70%',
+          }
+        });
+      }
+
+      /* ══════════════════════════════════════════════════════
+         GENERIC REVEAL-UP ELEMENTS
+      ══════════════════════════════════════════════════════════ */
+      function initGenericReveals() {
+        if (prefersReduced) {
+          document.querySelectorAll('.reveal-up').forEach(el => {
+            el.style.opacity = 1;
+            el.style.transform = 'none';
+          });
+          return;
+        }
+
+        // Section labels
+        gsap.utils.toArray('.section-label').forEach(el => {
+          gsap.from(el, {
+            opacity: 0, x: -20, duration: 0.7, ease: 'power3.out',
+            scrollTrigger: { trigger: el, start: 'top 85%' }
+          });
+        });
+
+        // Section titles
+        ['capabilities__title', 'projects__title', 'experience__title',
+          'services__title'].forEach(cls => {
+            const el = document.querySelector('.' + cls);
+            if (!el) return;
+            gsap.from(el, {
+              opacity: 0, y: 32, duration: 0.9, ease: 'power3.out',
+              scrollTrigger: { trigger: el, start: 'top 80%' }
+            });
+          });
+      }
+
+      /* ══════════════════════════════════════════════════════
+         CUSTOM CURSOR
+      ══════════════════════════════════════════════════════════ */
+      function initCursor() {
+        if (isTouch()) return;
+
+        const cursor = document.querySelector('#cursor');
+        let mouseX = 0, mouseY = 0;
+        let curX = 0, curY = 0;
+
+        document.addEventListener('mousemove', e => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+        });
+
+        function animCursor() {
+          curX += (mouseX - curX) * 0.15;
+          curY += (mouseY - curY) * 0.15;
+          cursor.style.transform = `translate(${curX}px, ${curY}px) translate(-50%, -50%)`;
+          requestAnimationFrame(animCursor);
+        }
+        animCursor();
+
+        // Hover states
+        document.querySelectorAll('a, button, .marquee-item').forEach(el => {
+          el.addEventListener('mouseenter', () => cursor.classList.add('is-hovering'));
+          el.addEventListener('mouseleave', () => cursor.classList.remove('is-hovering'));
+        });
+
+        document.querySelectorAll('.js-cursor-project').forEach(el => {
+          el.addEventListener('mouseenter', () => {
+            cursor.classList.remove('is-hovering');
+            cursor.classList.add('is-project');
+          });
+          el.addEventListener('mouseleave', () => {
+            cursor.classList.remove('is-project');
+          });
+        });
+      }
+
+      /* ══════════════════════════════════════════════════════
+         MAGNETIC BUTTONS
+      ══════════════════════════════════════════════════════════ */
+      function initMagnetic() {
+        if (isTouch() || prefersReduced) return;
+
+        document.querySelectorAll('.magnetic-wrap').forEach(wrap => {
+          const btn = wrap.querySelector('a, button');
+          if (!btn) return;
+
+          wrap.addEventListener('mousemove', e => {
+            const rect = wrap.getBoundingClientRect();
+            const cx = rect.left + rect.width / 2;
+            const cy = rect.top + rect.height / 2;
+            const dx = (e.clientX - cx) * 0.25;
+            const dy = (e.clientY - cy) * 0.25;
+            gsap.to(btn, { x: dx, y: dy, duration: 0.4, ease: 'power2.out' });
+          });
+
+          wrap.addEventListener('mouseleave', () => {
+            gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.4)' });
+          });
+        });
+      }
+
+      /* ══════════════════════════════════════════════════════
+         MOUSEMOVE PARALLAX (Hero only)
+      ══════════════════════════════════════════════════════════ */
+      function initHeroParallax() {
+        if (isTouch() || prefersReduced) return;
+
+        const portrait = document.querySelector('#hero-portrait');
+        const heroLeft = document.querySelector('.hero__left');
+        const hero = document.querySelector('.hero');
+
+        hero.addEventListener('mousemove', e => {
+          const rect = hero.getBoundingClientRect();
+          const xRel = (e.clientX / rect.width - 0.5) * 2;
+          const yRel = (e.clientY / rect.height - 0.5) * 2;
+
+          gsap.to(portrait, {
+            x: xRel * 12,
+            y: yRel * 8,
+            duration: 0.8,
+            ease: 'power2.out',
+          });
+
+          gsap.to(heroLeft, {
+            x: xRel * -5,
+            y: yRel * -3,
+            duration: 1,
+            ease: 'power2.out',
+          });
+        });
+
+        hero.addEventListener('mouseleave', () => {
+          gsap.to([portrait, heroLeft], {
+            x: 0, y: 0, duration: 1.2, ease: 'elastic.out(1, 0.5)'
+          });
+        });
+      }
+
+      /* ══════════════════════════════════════════════════════
+         NAVBAR — SCROLL + ACTIVE SECTION
+      ══════════════════════════════════════════════════════════ */
+      function initNav() {
+        const nav = document.querySelector('#nav');
+        const links = document.querySelectorAll('.nav__links a[data-section]');
+
+        // Shrink on scroll
+        let lastY = 0;
+        window.addEventListener('scroll', () => {
+          const y = window.scrollY;
+          if (y > 60) {
+            nav.classList.add('scrolled');
+          } else {
+            nav.classList.remove('scrolled');
+          }
+          lastY = y;
+        }, { passive: true });
+
+        // Active section detection
+        const sections = ['about', 'skills', 'projects', 'experience', 'contact'];
+        sections.forEach(id => {
+          const el = document.querySelector('#' + id);
+          if (!el) return;
+
+          ScrollTrigger.create({
+            trigger: el,
+            start: 'top 40%',
+            end: 'bottom 40%',
+            onEnter: () => setActiveLink(id),
+            onEnterBack: () => setActiveLink(id),
+          });
+        });
+
+        function setActiveLink(id) {
+          links.forEach(l => {
+            if (l.dataset.section === id) l.classList.add('active');
+            else l.classList.remove('active');
+          });
+        }
+
+        // Smooth scroll on nav click
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+          a.addEventListener('click', e => {
+            const target = document.querySelector(a.getAttribute('href'));
+            if (!target) return;
+            e.preventDefault();
+            lenis.scrollTo(target, { offset: -60, duration: 1.4 });
+          });
+        });
+      }
+
+      /* ══════════════════════════════════════════════════════
+         HAMBURGER MOBILE MENU
+      ══════════════════════════════════════════════════════════ */
+      function initMobileMenu() {
+        const burger = document.querySelector('#nav-burger');
+        const menu = document.querySelector('#mobile-menu');
+        let open = false;
+
+        burger.addEventListener('click', () => {
+          open = !open;
+          burger.classList.toggle('open', open);
+          menu.classList.toggle('open', open);
+          burger.setAttribute('aria-expanded', open);
+          menu.setAttribute('aria-hidden', !open);
+          if (open) lenis.stop(); else lenis.start();
+        });
+
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+          link.addEventListener('click', () => {
+            open = false;
+            burger.classList.remove('open');
+            menu.classList.remove('open');
+            burger.setAttribute('aria-expanded', 'false');
+            menu.setAttribute('aria-hidden', 'true');
+            lenis.start();
+          });
+        });
+      }
+
+      /* ══════════════════════════════════════════════════════
+         BACK TO TOP
+      ══════════════════════════════════════════════════════════ */
+      function initBackToTop() {
+        const btn = document.querySelector('#back-to-top');
+        if (!btn) return;
+        btn.addEventListener('click', () => {
+          lenis.scrollTo(0, { duration: 1.8, ease: (t) => 1 - Math.pow(1 - t, 4) });
+        });
+      }
+
+      /* ══════════════════════════════════════════════════════
+         INIT ALL
+      ══════════════════════════════════════════════════════════ */
+      function init() {
+        initNav();
+        initMobileMenu();
+        initEntrance();
+        initHeroScrollExit();
+        initAboutReveal();
+        initMarquee();
+        initProjects();
+        initExperience();
+        initServices();
+        initContact();
+        initGenericReveals();
+        initCursor();
+        initMagnetic();
+        initHeroParallax();
+        initBackToTop();
+      }
+
+      // Run after DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+
+    })();
+  </script>
+
+</body>
+
+</html>
