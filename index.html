@@ -50,6 +50,7 @@
           <li><a href="#skills" data-section="skills">SKILLS</a></li>
           <li><a href="#projects" data-section="projects">WORK</a></li>
           <li><a href="#experience" data-section="experience">EXPERIENCE</a></li>
+          <li><a href="#journey" data-section="journey">JOURNEY</a></li>
           <li><a href="#contact" data-section="contact">CONTACT</a></li>
         </ul>
       </nav>
@@ -71,6 +72,7 @@
         <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
         <li><a href="#projects" class="mobile-nav-link">Work</a></li>
         <li><a href="#experience" class="mobile-nav-link">Experience</a></li>
+        <li><a href="#journey" class="mobile-nav-link">Journey</a></li>
         <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
       </ul>
     </nav>
@@ -281,11 +283,24 @@
 
         <!-- Project 01 -->
         <article class="project-item" data-project="1">
-          <div class="project-img-wrap js-cursor-project">
+          <div class="project-img-wrap js-cursor-project js-reveal-project" data-project-id="1">
             <div class="project-img-clip" id="proj-clip-1">
-              <div class="project-placeholder proj-bg-1" aria-hidden="true">
-                <span style="opacity: 0.3; font-size: 10px; letter-spacing: 0.2em;">RIVERBIRD DIGITAL</span>
-              </div>
+              <!-- Grayscale base layer -->
+              <img
+                src="/assets/projects/riverbird_website.png"
+                alt="Riverbird Digital website screenshot"
+                class="project-reveal__base"
+                loading="lazy"
+                aria-hidden="true"
+              />
+              <!-- Full-color reveal layer -->
+              <img
+                src="/assets/projects/riverbird_website.png"
+                alt=""
+                class="project-reveal__color"
+                loading="lazy"
+                aria-hidden="true"
+              />
             </div>
           </div>
           <div class="project-content">
@@ -313,11 +328,24 @@
 
         <!-- Project 02 (reversed) -->
         <article class="project-item reverse" data-project="2">
-          <div class="project-img-wrap js-cursor-project">
+          <div class="project-img-wrap js-cursor-project js-reveal-project" data-project-id="2">
             <div class="project-img-clip" id="proj-clip-2">
-              <div class="project-placeholder proj-bg-2" aria-hidden="true">
-                <span style="opacity: 0.3; font-size: 10px; letter-spacing: 0.2em;">SHOPEDGE</span>
-              </div>
+              <!-- Grayscale base layer -->
+              <img
+                src="/assets/projects/iyx_website.png"
+                alt="IYX website screenshot"
+                class="project-reveal__base"
+                loading="lazy"
+                aria-hidden="true"
+              />
+              <!-- Full-color reveal layer -->
+              <img
+                src="/assets/projects/iyx_website.png"
+                alt=""
+                class="project-reveal__color"
+                loading="lazy"
+                aria-hidden="true"
+              />
             </div>
           </div>
           <div class="project-content">
@@ -345,11 +373,14 @@
 
         <!-- Project 03 -->
         <article class="project-item" data-project="3">
-          <div class="project-img-wrap js-cursor-project">
+          <div class="project-img-wrap js-cursor-project js-reveal-project" data-project-id="3">
             <div class="project-img-clip" id="proj-clip-3">
-              <div class="project-placeholder proj-bg-3" aria-hidden="true">
+              <!-- Grayscale base layer (placeholder) -->
+              <div class="project-reveal__base project-placeholder proj-bg-3" aria-hidden="true">
                 <span style="opacity: 0.3; font-size: 10px; letter-spacing: 0.2em;">DASHMETRICS</span>
               </div>
+              <!-- Full-color reveal layer (placeholder) -->
+              <div class="project-reveal__color project-placeholder proj-bg-3--color" aria-hidden="true"></div>
             </div>
           </div>
           <div class="project-content">
@@ -377,11 +408,14 @@
 
         <!-- Project 04 (reversed) -->
         <article class="project-item reverse" data-project="4">
-          <div class="project-img-wrap js-cursor-project">
+          <div class="project-img-wrap js-cursor-project js-reveal-project" data-project-id="4">
             <div class="project-img-clip" id="proj-clip-4">
-              <div class="project-placeholder proj-bg-4" aria-hidden="true">
+              <!-- Grayscale base layer (placeholder) -->
+              <div class="project-reveal__base project-placeholder proj-bg-4" aria-hidden="true">
                 <span style="opacity: 0.3; font-size: 10px; letter-spacing: 0.2em;">PORTFOLIO V1</span>
               </div>
+              <!-- Full-color reveal layer (placeholder) -->
+              <div class="project-reveal__color project-placeholder proj-bg-4--color" aria-hidden="true"></div>
             </div>
           </div>
           <div class="project-content">
@@ -468,6 +502,89 @@
     </section>
 
     <!-- ══════════════════════════════════════════════════════
+         CAREER JOURNEY
+    ══════════════════════════════════════════════════════════ -->
+    <section class="journey" id="journey" aria-labelledby="journey-title">
+      <div class="container">
+        <header class="journey__intro">
+          <div class="section-label" aria-hidden="true">
+            <span class="section-label__num">06</span>
+            <span class="section-label__line"></span>
+            <span class="section-label__text">Career Journey</span>
+          </div>
+          <div class="journey__heading-row">
+            <h2 class="journey__title" id="journey-title">THE JOURNEY</h2>
+            <p class="journey__lede">From learning the fundamentals to building for the web.</p>
+          </div>
+        </header>
+
+        <div class="journey__lifeline" role="list" aria-label="Career journey milestones">
+          <div class="journey__rail" aria-hidden="true">
+            <span class="journey__rail-progress" id="journey-progress"></span>
+          </div>
+
+          <article class="journey__milestone journey__milestone--left" role="listitem" data-milestone="0">
+            <div class="journey__content">
+              <p class="journey__year">2022</p>
+              <p class="journey__eyebrow">The Beginning</p>
+              <h3 class="journey__milestone-title">Started learning web development</h3>
+              <p class="journey__description">Started learning web development and building the foundation in modern web technologies.</p>
+            </div>
+            <span class="journey__node" aria-hidden="true"><span></span></span>
+            <span class="journey__index" aria-hidden="true">01</span>
+          </article>
+
+          <article class="journey__milestone journey__milestone--right" role="listitem" data-milestone="1">
+            <span class="journey__index" aria-hidden="true">02</span>
+            <span class="journey__node" aria-hidden="true"><span></span></span>
+            <div class="journey__content">
+              <p class="journey__year">MAY 2025</p>
+              <p class="journey__eyebrow">Milestone</p>
+              <h3 class="journey__milestone-title">Completed college</h3>
+              <p class="journey__description">Completed college and moved into professional web development.</p>
+            </div>
+          </article>
+
+          <article class="journey__milestone journey__milestone--left" role="listitem" data-milestone="2">
+            <div class="journey__content">
+              <p class="journey__year">JULY 2025</p>
+              <p class="journey__eyebrow">RiverBird</p>
+              <h3 class="journey__milestone-title">Associate Web Developer</h3>
+              <p class="journey__company">RiverBird Digital Solutions</p>
+              <p class="journey__description">Joined RiverBird Digital Solutions as an Associate Web Developer.</p>
+            </div>
+            <span class="journey__node" aria-hidden="true"><span></span></span>
+            <span class="journey__index" aria-hidden="true">03</span>
+          </article>
+
+          <article class="journey__milestone journey__milestone--right" role="listitem" data-milestone="3">
+            <span class="journey__index" aria-hidden="true">04</span>
+            <span class="journey__node" aria-hidden="true"><span></span></span>
+            <div class="journey__content">
+              <p class="journey__year">2026</p>
+              <p class="journey__eyebrow">Growth</p>
+              <h3 class="journey__milestone-title">Executive Web Developer</h3>
+              <p class="journey__company">RiverBird Digital Solutions</p>
+              <p class="journey__description">Progressed to Executive Web Developer at RiverBird Digital Solutions.</p>
+            </div>
+          </article>
+
+          <article class="journey__milestone journey__milestone--left journey__milestone--now" role="listitem" data-milestone="4">
+            <div class="journey__content">
+              <p class="journey__year">NOW</p>
+              <p class="journey__eyebrow">Building</p>
+              <h3 class="journey__milestone-title">Executive Web Developer</h3>
+              <p class="journey__company">RiverBird Digital Solutions</p>
+              <p class="journey__description">Working as an Executive Web Developer while <span>building my own digital products.</span></p>
+            </div>
+            <span class="journey__node" aria-hidden="true"><span></span></span>
+            <span class="journey__index" aria-hidden="true">05</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
          SERVICES
     ══════════════════════════════════════════════════════════ -->
     <section class="services" id="services" aria-labelledby="services-title">
@@ -475,7 +592,7 @@
 
         <div class="services__header">
           <div class="section-label" aria-hidden="true">
-            <span class="section-label__num">06</span>
+            <span class="section-label__num">07</span>
             <span class="section-label__line"></span>
             <span class="section-label__text">What I Do</span>
           </div>
@@ -548,7 +665,7 @@
       <div class="container">
 
         <div class="section-label" aria-hidden="true">
-          <span class="section-label__num">07</span>
+          <span class="section-label__num">08</span>
           <span class="section-label__line"></span>
           <span class="section-label__text">Contact</span>
         </div>
@@ -821,19 +938,51 @@
         const speeds = [0.6, 0.45, 0.55]; // px per tick
         const state = [];
 
+        if (prefersReduced) return;
+
         rows.forEach((row, i) => {
           const track = row.querySelector('.marquee-track');
           const dir = row.dataset.direction === 'right' ? 1 : -1;
-          // Duplicate track for seamless loop
+
+          // A second identical strip follows the first. Both strips receive
+          // the same transform so their edges always remain joined.
           const clone = track.cloneNode(true);
+          clone.removeAttribute('id');
+          clone.setAttribute('aria-hidden', 'true');
+          clone.querySelectorAll('[tabindex]').forEach(item => item.setAttribute('tabindex', '-1'));
           row.appendChild(clone);
 
-          state.push({ track, clone, x: 0, dir, speed: speeds[i], paused: false });
+          const trackWidth = track.getBoundingClientRect().width;
+          const itemState = {
+            tracks: [track, clone],
+            track,
+            width: trackWidth,
+            x: dir > 0 ? -trackWidth : 0,
+            dir,
+            speed: speeds[i],
+          };
 
-          // Pause on row hover
-          row.addEventListener('mouseenter', () => { state[i].paused = true; });
-          row.addEventListener('mouseleave', () => { state[i].paused = false; });
+          itemState.tracks.forEach(strip => {
+            strip.style.transform = `translate3d(${itemState.x}px, 0, 0)`;
+          });
+          state.push(itemState);
         });
+
+        const refreshTrackWidths = () => {
+          state.forEach(s => {
+            const nextWidth = s.track.getBoundingClientRect().width;
+            if (!nextWidth || nextWidth === s.width) return;
+
+            const phase = s.dir < 0
+              ? Math.abs(s.x / s.width) % 1
+              : ((s.x + s.width) / s.width) % 1;
+            s.width = nextWidth;
+            s.x = s.dir < 0 ? -phase * nextWidth : -nextWidth + (phase * nextWidth);
+          });
+        };
+
+        window.addEventListener('resize', refreshTrackWidths, { passive: true });
+        document.fonts?.ready.then(refreshTrackWidths);
 
         // Scroll velocity influence
         let scrollVelocity = 0;
@@ -844,37 +993,43 @@
           lastScroll = current;
         }, { passive: true });
 
-        if (prefersReduced) return;
-
-        let animId;
+        let animId = null;
         function tick() {
           scrollVelocity *= 0.92; // dampen
 
           state.forEach(s => {
-            if (s.paused) return;
             const velocityBoost = scrollVelocity * s.speed * 0.5;
             s.x += (s.speed + Math.abs(velocityBoost)) * s.dir;
 
-            const trackW = s.track.scrollWidth;
-            if (s.dir < 0 && s.x < -trackW) s.x += trackW;
-            if (s.dir > 0 && s.x > trackW) s.x -= trackW;
+            const trackW = s.width;
+            if (s.dir < 0 && s.x <= -trackW) s.x += trackW;
+            if (s.dir > 0 && s.x >= 0) s.x -= trackW;
 
-            s.track.style.transform = `translate3d(${s.x}px, 0, 0)`;
-            s.clone.style.transform = `translate3d(${s.x + trackW * s.dir * -1}px, 0, 0)`;
+            const transform = `translate3d(${s.x}px, 0, 0)`;
+            s.tracks.forEach(strip => { strip.style.transform = transform; });
           });
 
           animId = requestAnimationFrame(tick);
         }
+
+        const startMarquee = () => {
+          if (animId === null) tick();
+        };
+
+        const stopMarquee = () => {
+          if (animId !== null) cancelAnimationFrame(animId);
+          animId = null;
+        };
 
         // Only animate when section is visible
         ScrollTrigger.create({
           trigger: '#skills',
           start: 'top bottom',
           end: 'bottom top',
-          onEnter: () => { cancelAnimationFrame(animId); tick(); },
-          onLeave: () => cancelAnimationFrame(animId),
-          onEnterBack: () => { cancelAnimationFrame(animId); tick(); },
-          onLeaveBack: () => cancelAnimationFrame(animId),
+          onEnter: startMarquee,
+          onLeave: stopMarquee,
+          onEnterBack: startMarquee,
+          onLeaveBack: stopMarquee,
         });
       }
 
@@ -924,6 +1079,87 @@
       }
 
       /* ══════════════════════════════════════════════════════
+         STAGE 05b — PROJECT IMAGE CURSOR REVEAL
+         Grayscale base + circular color spotlight following cursor
+      ══════════════════════════════════════════════════════════ */
+      function initProjectReveal() {
+        // Skip on touch / reduced motion
+        if (isTouch()) return;
+        if (prefersReduced) return;
+
+        const wraps = document.querySelectorAll('.js-reveal-project');
+
+        wraps.forEach(wrap => {
+          let rafId = null;
+          let isHovering = false;
+
+          // Lerp targets (px within element)
+          let targetX = 0, targetY = 0;
+          // Current lerped position (stored as percentages for CSS)
+          let curX = 50, curY = 50; // start at center
+
+          const colorLayer = wrap.querySelector('.project-reveal__color');
+          if (!colorLayer) return;
+
+          /* ── Mouse Enter ── */
+          wrap.addEventListener('mouseenter', e => {
+            isHovering = true;
+            wrap.classList.add('is-revealing');
+
+            // Seed the lerp position at cursor entry so it doesn't
+            // sweep from center — set current to target instantly
+            const rect = wrap.getBoundingClientRect();
+            const px = e.clientX - rect.left;
+            const py = e.clientY - rect.top;
+            curX = (px / rect.width) * 100;
+            curY = (py / rect.height) * 100;
+            targetX = curX;
+            targetY = curY;
+            wrap.style.setProperty('--mouse-x', curX.toFixed(2) + '%');
+            wrap.style.setProperty('--mouse-y', curY.toFixed(2) + '%');
+
+            if (!rafId) rafId = requestAnimationFrame(tick);
+          });
+
+          /* ── Mouse Move ── */
+          wrap.addEventListener('mousemove', e => {
+            const rect = wrap.getBoundingClientRect();
+            // Convert cursor px to % relative to element
+            targetX = ((e.clientX - rect.left) / rect.width) * 100;
+            targetY = ((e.clientY - rect.top) / rect.height) * 100;
+          });
+
+          /* ── Mouse Leave ── */
+          wrap.addEventListener('mouseleave', () => {
+            isHovering = false;
+            wrap.classList.remove('is-revealing');
+            if (rafId) {
+              cancelAnimationFrame(rafId);
+              rafId = null;
+            }
+          });
+
+          /* ── rAF Lerp Loop ── */
+          function tick() {
+            if (!isHovering) {
+              rafId = null;
+              return;
+            }
+
+            // Lerp factor — 0.10 gives smooth, slightly lagging follow
+            const factor = 0.10;
+            curX += (targetX - curX) * factor;
+            curY += (targetY - curY) * factor;
+
+            wrap.style.setProperty('--mouse-x', curX.toFixed(2) + '%');
+            wrap.style.setProperty('--mouse-y', curY.toFixed(2) + '%');
+
+            rafId = requestAnimationFrame(tick);
+          }
+        });
+      }
+
+      /* ══════════════════════════════════════════════════════
          STAGE 06 — EXPERIENCE TIMELINE
       ══════════════════════════════════════════════════════════ */
       function initExperience() {
@@ -967,6 +1203,112 @@
               }
             }
           });
+        });
+      }
+
+      /* ══════════════════════════════════════════════════════
+         STAGE 07 — CAREER JOURNEY / SCROLL-LINKED LIFELINE
+      ══════════════════════════════════════════════════════════ */
+      function initJourney() {
+        const section = document.querySelector('#journey');
+        const lifeline = section?.querySelector('.journey__lifeline');
+        const rail = section?.querySelector('.journey__rail');
+        const progressLine = section?.querySelector('#journey-progress');
+        const items = section ? [...section.querySelectorAll('.journey__milestone')] : [];
+
+        if (!section || !lifeline || !rail || !progressLine || !items.length) return;
+
+        const getNodePosition = (item) => {
+          const node = item.querySelector('.journey__node');
+          return item.offsetTop + node.offsetTop + (node.offsetHeight / 2);
+        };
+
+        const syncRailToNodes = () => {
+          const firstNodeY = getNodePosition(items[0]);
+          const lastNodeY = getNodePosition(items[items.length - 1]);
+          rail.style.top = `${firstNodeY}px`;
+          rail.style.bottom = `${lifeline.scrollHeight - lastNodeY}px`;
+        };
+
+        syncRailToNodes();
+        ScrollTrigger.addEventListener('refreshInit', syncRailToNodes);
+
+        const setActiveMilestone = (activeIndex) => {
+          items.forEach((item, index) => {
+            item.classList.toggle('is-complete', index < activeIndex);
+            item.classList.toggle('is-current', index === activeIndex);
+            item.classList.toggle('is-future', index > activeIndex);
+          });
+        };
+
+        if (prefersReduced) {
+          items.forEach(item => item.classList.add('is-complete'));
+          items[items.length - 1].classList.remove('is-complete');
+          items[items.length - 1].classList.add('is-current');
+          gsap.set(progressLine, { scaleY: 1 });
+          return;
+        }
+
+        gsap.from(['.journey__intro .section-label', '.journey__title', '.journey__lede'], {
+          y: 20,
+          opacity: 0,
+          duration: 0.9,
+          stagger: 0.1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.journey__intro',
+            start: 'top 78%',
+          }
+        });
+
+        items.forEach((item) => {
+          const content = item.querySelector('.journey__content');
+          const fromLeft = item.classList.contains('journey__milestone--left');
+
+          gsap.fromTo(content,
+            { opacity: 0.12, y: 28, x: fromLeft ? -18 : 18, filter: 'blur(3px)' },
+            {
+              opacity: 1,
+              y: 0,
+              x: 0,
+              filter: 'blur(0px)',
+              ease: 'none',
+              scrollTrigger: {
+                trigger: item,
+                start: 'top 88%',
+                end: 'center 64%',
+                scrub: 0.65,
+              }
+            }
+          );
+        });
+
+        const firstItem = items[0];
+        const lastItem = items[items.length - 1];
+        const scrollStart = () => `top+=${getNodePosition(firstItem)} 68%`;
+        const scrollEnd = () => `top+=${getNodePosition(lastItem)} 68%`;
+
+        gsap.to(progressLine, {
+          scaleY: 1,
+          ease: 'none',
+          transformOrigin: 'top center',
+          scrollTrigger: {
+            trigger: lifeline,
+            start: scrollStart,
+            end: scrollEnd,
+            scrub: 0.55,
+            invalidateOnRefresh: true,
+            onEnter: () => setActiveMilestone(0),
+            onEnterBack: self => setActiveMilestone(Math.min(items.length - 1, Math.floor(self.progress * (items.length - 1)))),
+            onLeaveBack: () => setActiveMilestone(-1),
+            onUpdate: self => {
+              const activeIndex = Math.min(
+                items.length - 1,
+                Math.floor((self.progress * (items.length - 1)) + 0.025)
+              );
+              setActiveMilestone(activeIndex);
+            }
+          }
         });
       }
 
@@ -1184,7 +1526,7 @@
         }, { passive: true });
 
         // Active section detection
-        const sections = ['about', 'skills', 'projects', 'experience', 'contact'];
+        const sections = ['about', 'skills', 'projects', 'experience', 'journey', 'contact'];
         sections.forEach(id => {
           const el = document.querySelector('#' + id);
           if (!el) return;
@@ -1267,7 +1609,9 @@
         initAboutReveal();
         initMarquee();
         initProjects();
+        initProjectReveal();
         initExperience();
+        initJourney();
         initServices();
         initContact();
         initGenericReveals();
