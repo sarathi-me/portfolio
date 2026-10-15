@@ -4,6 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="theme-color" id="theme-color" content="#11100F" />
   <title>Sarathi — Web Developer | Building Digital Experiences</title>
   <meta name="description"
     content="Sarathi is a web developer based in India, focused on building fast, responsive and thoughtful digital experiences using React, WordPress, and modern web technologies." />
@@ -11,6 +13,20 @@
   <meta property="og:description" content="Building fast, responsive and thoughtful digital experiences." />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem('sarathi-theme');
+        const systemTheme = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        const theme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : systemTheme;
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      } catch (_) {
+        document.documentElement.dataset.theme = 'dark';
+        document.documentElement.style.colorScheme = 'dark';
+      }
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -26,6 +42,31 @@
 </head>
 
 <body>
+
+  <div class="preloader" id="preloader" role="status" aria-label="Loading Sarathi's portfolio">
+    <div class="preloader__inner">
+      <svg class="preloader__signature" viewBox="0 0 720 260" aria-hidden="true">
+        <path class="preloader__stroke" pathLength="1" style="--draw-delay: 0s; --draw-time: 1.05s;"
+          d="M132 55C97 23 43 45 45 93C47 132 90 135 126 121C165 106 182 74 162 54C141 32 93 39 69 71C45 105 52 167 87 193C123 219 184 204 230 177" />
+        <path class="preloader__stroke" pathLength="1" style="--draw-delay: .66s; --draw-time: .48s;"
+          d="M210 174C196 153 211 128 232 133C251 138 247 168 230 177C213 187 205 164 218 146C228 132 243 137 244 151L245 176" />
+        <path class="preloader__stroke" pathLength="1" style="--draw-delay: .96s; --draw-time: .36s;"
+          d="M245 176C248 158 249 141 250 132C252 151 255 164 259 168C263 146 274 133 288 136" />
+        <path class="preloader__stroke" pathLength="1" style="--draw-delay: 1.14s; --draw-time: .45s;"
+          d="M286 168C287 143 305 130 319 141C332 151 322 174 307 177C291 180 288 159 299 145C307 135 321 139 326 150L327 176" />
+        <path class="preloader__stroke" pathLength="1" style="--draw-delay: 1.43s; --draw-time: .36s;"
+          d="M327 176C338 157 342 124 343 96M326 129C342 131 357 127 369 121" />
+        <path class="preloader__stroke" pathLength="1" style="--draw-delay: 1.62s; --draw-time: .44s;"
+          d="M350 176C360 140 362 103 360 78C358 122 361 158 365 174C372 143 391 134 400 144C407 153 399 171 410 176" />
+        <path class="preloader__stroke" pathLength="1" style="--draw-delay: 1.86s; --draw-time: .3s;"
+          d="M414 176C419 157 421 144 421 136C423 151 424 166 431 176" />
+        <path class="preloader__stroke preloader__flourish" pathLength="1"
+          style="--draw-delay: 1.72s; --draw-time: .88s;" d="M75 209C180 235 355 218 492 180C560 161 617 143 662 123" />
+        <circle class="preloader__dot" cx="423" cy="117" r="4.5" />
+      </svg>
+      <p class="preloader__label">Portfolio &nbsp;·&nbsp; 2026</p>
+    </div>
+  </div>
 
   <!-- ══════════════════════════════════════════════════════
        CUSTOM CURSOR
@@ -46,20 +87,35 @@
 
       <nav aria-label="Primary navigation">
         <ul class="nav__links" role="list">
-          <li><a href="#about" data-section="about">ABOUT</a></li>
-          <li><a href="#skills" data-section="skills">SKILLS</a></li>
-          <li><a href="#projects" data-section="projects">WORK</a></li>
-          <li><a href="#experience" data-section="experience">EXPERIENCE</a></li>
-          <li><a href="#journey" data-section="journey">JOURNEY</a></li>
-          <li><a href="#contact" data-section="contact">CONTACT</a></li>
+          <li><a href="#about" data-section="about">About</a></li>
+          <li><a href="#skills" data-section="skills">Skills</a></li>
+          <li><a href="#projects" data-section="projects">Work</a></li>
+          <li><a href="#journey" data-section="journey">Journey</a></li>
+          <li><a href="#contact" data-section="contact" class="nav__contact">Let's talk <span class="nav__contact-arrow"
+                aria-hidden="true">↗</span></a></li>
         </ul>
       </nav>
 
-      <button class="nav__burger" id="nav-burger" aria-label="Toggle menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <div class="nav__actions">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme"
+          aria-pressed="false" title="Switch to light theme">
+          <svg class="theme-toggle__icon theme-toggle__sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="3.5"></circle>
+            <path
+              d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42">
+            </path>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.2 15.2A8.6 8.6 0 0 1 8.8 3.8 8.6 8.6 0 1 0 20.2 15.2Z"></path>
+          </svg>
+        </button>
+
+        <button class="nav__burger" id="nav-burger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
 
     </div>
   </header>
@@ -71,7 +127,6 @@
         <li><a href="#about" class="mobile-nav-link">About</a></li>
         <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
         <li><a href="#projects" class="mobile-nav-link">Work</a></li>
-        <li><a href="#experience" class="mobile-nav-link">Experience</a></li>
         <li><a href="#journey" class="mobile-nav-link">Journey</a></li>
         <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
       </ul>
@@ -89,12 +144,7 @@
 
         <div class="hero__left container" style="width: auto; padding-left: clamp(24px, 4vw, 80px);">
 
-          <!-- Meta row -->
-          <div class="hero__meta" id="hero-meta">
-            <span class="hero__role-label">Web Developer</span>
-            <span class="hero__role-sep" aria-hidden="true"></span>
-            <span class="hero__section-num">01 / 09</span>
-          </div>
+
 
           <!-- Headline -->
           <h1 class="hero__headline" id="hero-headline">
@@ -150,7 +200,6 @@
 
         <div class="section-label" aria-hidden="true">
           <span class="section-label__num">02</span>
-          <span class="section-label__line"></span>
           <span class="section-label__text">About</span>
         </div>
 
@@ -198,7 +247,6 @@
       <div class="container capabilities__header">
         <div class="section-label" aria-hidden="true">
           <span class="section-label__num">03</span>
-          <span class="section-label__line"></span>
           <span class="section-label__text">Capabilities</span>
         </div>
         <h2 class="capabilities__title" id="skills-title">WHAT I WORK WITH</h2>
@@ -273,7 +321,6 @@
           <div>
             <div class="section-label" aria-hidden="true">
               <span class="section-label__num">04</span>
-              <span class="section-label__line"></span>
               <span class="section-label__text">Selected Work</span>
             </div>
             <h2 class="projects__title" id="projects-title">SELECTED<br />PROJECTS</h2>
@@ -286,21 +333,11 @@
           <div class="project-img-wrap js-cursor-project js-reveal-project" data-project-id="1">
             <div class="project-img-clip" id="proj-clip-1">
               <!-- Grayscale base layer -->
-              <img
-                src="/assets/projects/riverbird_website.png"
-                alt="Riverbird Digital website screenshot"
-                class="project-reveal__base"
-                loading="lazy"
-                aria-hidden="true"
-              />
+              <img src="/assets/projects/riverbird_website.png" alt="Riverbird Digital website screenshot"
+                class="project-reveal__base" loading="lazy" aria-hidden="true" />
               <!-- Full-color reveal layer -->
-              <img
-                src="/assets/projects/riverbird_website.png"
-                alt=""
-                class="project-reveal__color"
-                loading="lazy"
-                aria-hidden="true"
-              />
+              <img src="/assets/projects/riverbird_website.png" alt="" class="project-reveal__color" loading="lazy"
+                aria-hidden="true" />
             </div>
           </div>
           <div class="project-content">
@@ -331,21 +368,11 @@
           <div class="project-img-wrap js-cursor-project js-reveal-project" data-project-id="2">
             <div class="project-img-clip" id="proj-clip-2">
               <!-- Grayscale base layer -->
-              <img
-                src="/assets/projects/iyx_website.png"
-                alt="IYX website screenshot"
-                class="project-reveal__base"
-                loading="lazy"
-                aria-hidden="true"
-              />
+              <img src="/assets/projects/iyx_website.png" alt="IYX website screenshot" class="project-reveal__base"
+                loading="lazy" aria-hidden="true" />
               <!-- Full-color reveal layer -->
-              <img
-                src="/assets/projects/iyx_website.png"
-                alt=""
-                class="project-reveal__color"
-                loading="lazy"
-                aria-hidden="true"
-              />
+              <img src="/assets/projects/iyx_website.png" alt="" class="project-reveal__color" loading="lazy"
+                aria-hidden="true" />
             </div>
           </div>
           <div class="project-content">
@@ -446,141 +473,85 @@
     <!-- ══════════════════════════════════════════════════════
          EXPERIENCE
     ══════════════════════════════════════════════════════════ -->
-    <section class="experience" id="experience" aria-labelledby="exp-title">
-      <div class="container">
-
-        <div class="experience__header">
-          <div class="section-label" aria-hidden="true">
-            <span class="section-label__num">05</span>
-            <span class="section-label__line"></span>
-            <span class="section-label__text">Experience</span>
-          </div>
-          <h2 class="experience__title" id="exp-title">THE PATH<br />SO FAR</h2>
-        </div>
-
-        <div class="experience__timeline" role="list" aria-label="Work experience">
-
-          <div class="experience__line-fill" id="exp-line" aria-hidden="true"></div>
-
-          <article class="exp-item active" role="listitem">
-            <p class="exp-year" aria-label="Year: 2025">2025</p>
-            <h3 class="exp-role">Web Developer</h3>
-            <p class="exp-company">Riverbird Digitel Solutions</p>
-            <p class="exp-desc">
-              Building and maintaining client websites using WordPress, React
-              and PHP. Responsible for frontend architecture, performance
-              optimisation and delivering responsive, accessible interfaces
-              that meet business objectives.
-            </p>
-          </article>
-
-          <article class="exp-item" role="listitem">
-            <p class="exp-year" aria-label="Year: 2023">2023</p>
-            <h3 class="exp-role">Freelance Web Developer</h3>
-            <p class="exp-company">Independent</p>
-            <p class="exp-desc">
-              Designed and developed websites for local businesses and
-              startups. Built custom WordPress themes, e-commerce stores
-              and landing pages with a focus on conversion and usability.
-            </p>
-          </article>
-
-          <article class="exp-item" role="listitem">
-            <p class="exp-year" aria-label="Year: 2022">2022</p>
-            <h3 class="exp-role">Web Development</h3>
-            <p class="exp-company">Self-directed Learning</p>
-            <p class="exp-desc">
-              Began formal study of web development — mastering HTML, CSS,
-              JavaScript and PHP. Built personal projects and contributed to
-              open-source repositories to sharpen skills.
-            </p>
-          </article>
-
-        </div>
-
-      </div>
-    </section>
-
     <!-- ══════════════════════════════════════════════════════
          CAREER JOURNEY
     ══════════════════════════════════════════════════════════ -->
     <section class="journey" id="journey" aria-labelledby="journey-title">
-      <div class="container">
+      <div class="container journey__layout">
         <header class="journey__intro">
           <div class="section-label" aria-hidden="true">
-            <span class="section-label__num">06</span>
-            <span class="section-label__line"></span>
-            <span class="section-label__text">Career Journey</span>
+            <span class="section-label__num">05</span>
+            <span class="section-label__text">The Journey</span>
           </div>
-          <div class="journey__heading-row">
-            <h2 class="journey__title" id="journey-title">THE JOURNEY</h2>
-            <p class="journey__lede">From learning the fundamentals to building for the web.</p>
-          </div>
+          <h2 class="journey__title" id="journey-title">A LITTLE ABOUT<br />MY PATH.</h2>
+          <p class="journey__lede">From learning the foundations to growing into professional development and
+            building digital products of my own.</p>
         </header>
 
-        <div class="journey__lifeline" role="list" aria-label="Career journey milestones">
+        <div class="journey__timeline" role="list" aria-label="Career journey milestones">
           <div class="journey__rail" aria-hidden="true">
             <span class="journey__rail-progress" id="journey-progress"></span>
           </div>
 
-          <article class="journey__milestone journey__milestone--left" role="listitem" data-milestone="0">
-            <div class="journey__content">
-              <p class="journey__year">2022</p>
-              <p class="journey__eyebrow">The Beginning</p>
-              <h3 class="journey__milestone-title">Started learning web development</h3>
-              <p class="journey__description">Started learning web development and building the foundation in modern web technologies.</p>
-            </div>
-            <span class="journey__node" aria-hidden="true"><span></span></span>
-            <span class="journey__index" aria-hidden="true">01</span>
-          </article>
-
-          <article class="journey__milestone journey__milestone--right" role="listitem" data-milestone="1">
-            <span class="journey__index" aria-hidden="true">02</span>
+          <article class="journey__milestone" role="listitem" data-milestone="0">
+            <p class="journey__year">2022</p>
             <span class="journey__node" aria-hidden="true"><span></span></span>
             <div class="journey__content">
-              <p class="journey__year">MAY 2025</p>
-              <p class="journey__eyebrow">Milestone</p>
-              <h3 class="journey__milestone-title">Completed college</h3>
-              <p class="journey__description">Completed college and moved into professional web development.</p>
+              <h3 class="journey__milestone-title">The Beginning</h3>
+              <p class="journey__description">Started learning web development and building my technical foundation.</p>
             </div>
           </article>
 
-          <article class="journey__milestone journey__milestone--left" role="listitem" data-milestone="2">
+          <article class="journey__milestone" role="listitem" data-milestone="1">
+            <p class="journey__year">MAY 2025</p>
+            <span class="journey__node" aria-hidden="true"><span></span></span>
             <div class="journey__content">
-              <p class="journey__year">JULY 2025</p>
-              <p class="journey__eyebrow">RiverBird</p>
+              <h3 class="journey__milestone-title">A New Chapter</h3>
+              <p class="journey__description">Completed college and prepared to move into professional development
+                work.</p>
+            </div>
+          </article>
+
+          <article class="journey__milestone" role="listitem" data-milestone="2">
+            <p class="journey__year">JULY 2025</p>
+            <span class="journey__node" aria-hidden="true"><span></span></span>
+            <div class="journey__content">
               <h3 class="journey__milestone-title">Associate Web Developer</h3>
               <p class="journey__company">RiverBird Digital Solutions</p>
               <p class="journey__description">Joined RiverBird Digital Solutions as an Associate Web Developer.</p>
             </div>
-            <span class="journey__node" aria-hidden="true"><span></span></span>
-            <span class="journey__index" aria-hidden="true">03</span>
           </article>
 
-          <article class="journey__milestone journey__milestone--right" role="listitem" data-milestone="3">
-            <span class="journey__index" aria-hidden="true">04</span>
+          <article class="journey__milestone" role="listitem" data-milestone="3">
+            <p class="journey__year">2026</p>
             <span class="journey__node" aria-hidden="true"><span></span></span>
             <div class="journey__content">
-              <p class="journey__year">2026</p>
-              <p class="journey__eyebrow">Growth</p>
               <h3 class="journey__milestone-title">Executive Web Developer</h3>
               <p class="journey__company">RiverBird Digital Solutions</p>
-              <p class="journey__description">Progressed to Executive Web Developer at RiverBird Digital Solutions.</p>
+              <p class="journey__description">Progressed to the Executive Web Developer role at RiverBird Digital
+                Solutions.</p>
             </div>
           </article>
 
-          <article class="journey__milestone journey__milestone--left journey__milestone--now" role="listitem" data-milestone="4">
-            <div class="journey__content">
-              <p class="journey__year">NOW</p>
-              <p class="journey__eyebrow">Building</p>
-              <h3 class="journey__milestone-title">Executive Web Developer</h3>
-              <p class="journey__company">RiverBird Digital Solutions</p>
-              <p class="journey__description">Working as an Executive Web Developer while <span>building my own digital products.</span></p>
-            </div>
+          <article class="journey__milestone journey__milestone--now" role="listitem" data-milestone="4">
+            <p class="journey__year">PRESENT</p>
             <span class="journey__node" aria-hidden="true"><span></span></span>
-            <span class="journey__index" aria-hidden="true">05</span>
+            <div class="journey__content">
+              <h3 class="journey__milestone-title">Building Beyond Work</h3>
+              <p class="journey__company">RiverBird Digital Solutions</p>
+              <p class="journey__description">Continuing as an Executive Web Developer while <span>building my own
+                  digital products.</span></p>
+            </div>
           </article>
         </div>
+
+        <figure class="journey__portrait">
+          <div class="journey__portrait-frame">
+            <img src="/assets/sarathi_portrait.png" width="1143" height="1380" alt="Sarathi, Executive Web Developer"
+              loading="lazy" />
+          </div>
+          <figcaption>Sarathi &nbsp;·&nbsp; Web Developer</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -592,8 +563,7 @@
 
         <div class="services__header">
           <div class="section-label" aria-hidden="true">
-            <span class="section-label__num">07</span>
-            <span class="section-label__line"></span>
+            <span class="section-label__num">06</span>
             <span class="section-label__text">What I Do</span>
           </div>
           <h2 class="services__title" id="services-title">I TURN IDEAS INTO DIGITAL PRODUCTS.</h2>
@@ -661,12 +631,84 @@
     <!-- ══════════════════════════════════════════════════════
          CONTACT
     ══════════════════════════════════════════════════════════ -->
+    <section class="beyond" id="beyond" aria-labelledby="beyond-title">
+      <div class="container">
+        <header class="beyond__header">
+          <div class="section-label" aria-hidden="true">
+            <span class="section-label__num">07</span>
+            <span class="section-label__text">Personal Notes</span>
+          </div>
+
+          <div class="beyond__heading-row">
+            <h2 class="beyond__title" id="beyond-title">BEYOND<br />THE CODE.</h2>
+            <p class="beyond__intro">When I’m not building websites, I enjoy exploring new places, capturing
+              moments, and finding inspiration beyond the screen.</p>
+          </div>
+        </header>
+
+        <div class="beyond__journal" aria-label="Personal photo journal">
+          <figure class="beyond__figure beyond__figure--feature">
+            <div class="beyond__image-wrap">
+              <img src="/assets/Monochrome Profile Beneath the Trees.png" width="1254" height="1254"
+                alt="Sarathi outdoors holding a camera lens" loading="lazy" />
+            </div>
+            <figcaption>
+              <span>01</span>
+              <span>Photography</span>
+            </figcaption>
+          </figure>
+
+          <div class="beyond__support-grid">
+            <figure class="beyond__figure beyond__figure--wide">
+              <div class="beyond__image-wrap">
+                <img src="/assets/Thoughtful monochrome laptop portrait.png" width="1672" height="941"
+                  alt="Sarathi seated thoughtfully beside a laptop" loading="lazy" />
+              </div>
+              <figcaption>
+                <span>02</span>
+                <span>Quiet focus</span>
+              </figcaption>
+            </figure>
+
+            <figure class="beyond__figure beyond__figure--small beyond__figure--studio">
+              <div class="beyond__image-wrap">
+                <img src="/assets/Neutral black-and-white portrait.png" width="1536" height="1024"
+                  alt="A relaxed black-and-white portrait of Sarathi" loading="lazy" />
+              </div>
+              <figcaption>
+                <span>03</span>
+                <span>In frame</span>
+              </figcaption>
+            </figure>
+
+            <figure class="beyond__figure beyond__figure--small beyond__figure--chair">
+              <div class="beyond__image-wrap">
+                <img src="/assets/Brooding Monochrome Chair Portrait.png" width="1672" height="941"
+                  alt="Sarathi seated in a dark editorial portrait" loading="lazy" />
+              </div>
+              <figcaption>
+                <span>04</span>
+                <span>Perspective</span>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="beyond__notes">
+            <p class="beyond__notes-label">Away from the screen</p>
+            <ul class="beyond__interests" aria-label="Interests">
+              <li>Exploration</li>
+              <li>Photography</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="contact" id="contact" aria-labelledby="contact-title">
       <div class="container">
 
         <div class="section-label" aria-hidden="true">
           <span class="section-label__num">08</span>
-          <span class="section-label__line"></span>
           <span class="section-label__text">Contact</span>
         </div>
 
@@ -772,6 +814,73 @@
       /* ── HELPERS ──────────────────────────────────────────── */
       const isMobile = () => window.innerWidth < 768;
       const isTouch = () => window.matchMedia('(pointer: coarse)').matches;
+
+      function initTheme() {
+        const root = document.documentElement;
+        const toggle = document.querySelector('#theme-toggle');
+        const themeColor = document.querySelector('#theme-color');
+        const systemPreference = window.matchMedia('(prefers-color-scheme: light)');
+        if (!toggle) return;
+
+        const getSavedTheme = () => {
+          try { return localStorage.getItem('sarathi-theme'); }
+          catch (_) { return null; }
+        };
+
+        const applyTheme = (theme) => {
+          const isLight = theme === 'light';
+          const nextTheme = isLight ? 'dark' : 'light';
+          root.dataset.theme = theme;
+          root.style.colorScheme = theme;
+          toggle.setAttribute('aria-pressed', String(isLight));
+          toggle.setAttribute('aria-label', `Switch to ${nextTheme} theme`);
+          toggle.title = `Switch to ${nextTheme} theme`;
+          if (themeColor) themeColor.content = isLight ? '#F5F2ED' : '#11100F';
+        };
+
+        applyTheme(root.dataset.theme || (systemPreference.matches ? 'light' : 'dark'));
+
+        toggle.addEventListener('click', () => {
+          const nextTheme = root.dataset.theme === 'light' ? 'dark' : 'light';
+          applyTheme(nextTheme);
+          try { localStorage.setItem('sarathi-theme', nextTheme); }
+          catch (_) { /* Theme still applies when storage is unavailable. */ }
+        });
+
+        systemPreference.addEventListener?.('change', event => {
+          if (!getSavedTheme()) applyTheme(event.matches ? 'light' : 'dark');
+        });
+      }
+
+      async function initPreloader() {
+        const preloader = document.querySelector('#preloader');
+        if (!preloader) return;
+
+        if (prefersReduced) {
+          preloader.remove();
+          return;
+        }
+
+        document.body.classList.add('is-loading');
+        lenis.stop();
+
+        const delay = (milliseconds) => new Promise(resolve => setTimeout(resolve, milliseconds));
+        const pageLoaded = document.readyState === 'complete'
+          ? Promise.resolve()
+          : new Promise(resolve => window.addEventListener('load', resolve, { once: true }));
+
+        // Let the signature finish, but never hold the visitor for a slow asset.
+        await Promise.all([
+          delay(2700),
+          Promise.race([pageLoaded, delay(3600)])
+        ]);
+
+        preloader.classList.add('is-leaving');
+        await delay(820);
+        preloader.remove();
+        document.body.classList.remove('is-loading');
+        lenis.start();
+      }
 
       // Split text into word spans
       function splitWords(el, accentWords = []) {
@@ -1162,61 +1271,17 @@
       /* ══════════════════════════════════════════════════════
          STAGE 06 — EXPERIENCE TIMELINE
       ══════════════════════════════════════════════════════════ */
-      function initExperience() {
-        const items = document.querySelectorAll('.exp-item');
-        const lineFill = document.querySelector('#exp-line');
-
-        if (prefersReduced) {
-          items.forEach(it => it.classList.add('active'));
-          return;
-        }
-
-        // Animate line fill on scroll
-        gsap.to(lineFill, {
-          height: '100%',
-          ease: 'none',
-          scrollTrigger: {
-            trigger: '.experience__timeline',
-            start: 'top 70%',
-            end: 'bottom 30%',
-            scrub: 1,
-          }
-        });
-
-        // Activate items progressively
-        items.forEach((item, i) => {
-          gsap.from(item, {
-            opacity: 0.2,
-            x: 24,
-            duration: 0.8,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: item,
-              start: 'top 70%',
-              onEnter: () => {
-                items.forEach(it => it.classList.remove('active'));
-                item.classList.add('active');
-              },
-              onEnterBack: () => {
-                items.forEach(it => it.classList.remove('active'));
-                item.classList.add('active');
-              }
-            }
-          });
-        });
-      }
-
       /* ══════════════════════════════════════════════════════
          STAGE 07 — CAREER JOURNEY / SCROLL-LINKED LIFELINE
       ══════════════════════════════════════════════════════════ */
       function initJourney() {
         const section = document.querySelector('#journey');
-        const lifeline = section?.querySelector('.journey__lifeline');
+        const timeline = section?.querySelector('.journey__timeline');
         const rail = section?.querySelector('.journey__rail');
         const progressLine = section?.querySelector('#journey-progress');
         const items = section ? [...section.querySelectorAll('.journey__milestone')] : [];
 
-        if (!section || !lifeline || !rail || !progressLine || !items.length) return;
+        if (!section || !timeline || !rail || !progressLine || !items.length) return;
 
         const getNodePosition = (item) => {
           const node = item.querySelector('.journey__node');
@@ -1227,7 +1292,7 @@
           const firstNodeY = getNodePosition(items[0]);
           const lastNodeY = getNodePosition(items[items.length - 1]);
           rail.style.top = `${firstNodeY}px`;
-          rail.style.bottom = `${lifeline.scrollHeight - lastNodeY}px`;
+          rail.style.height = `${Math.max(1, lastNodeY - firstNodeY)}px`;
         };
 
         syncRailToNodes();
@@ -1238,6 +1303,11 @@
             item.classList.toggle('is-complete', index < activeIndex);
             item.classList.toggle('is-current', index === activeIndex);
             item.classList.toggle('is-future', index > activeIndex);
+            if (index === activeIndex) {
+              item.setAttribute('aria-current', 'step');
+            } else {
+              item.removeAttribute('aria-current');
+            }
           });
         };
 
@@ -1261,54 +1331,71 @@
           }
         });
 
-        items.forEach((item) => {
+        gsap.from('.journey__portrait', {
+          y: 28,
+          opacity: 0,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.journey__portrait',
+            start: 'top 82%',
+          }
+        });
+
+        const getThresholds = () => {
+          const railTop = parseFloat(rail.style.top) || getNodePosition(items[0]);
+          const railHeight = parseFloat(rail.style.height) || 1;
+          return items.map(item => (getNodePosition(item) - railTop) / railHeight);
+        };
+        let milestoneThresholds = getThresholds();
+
+        setActiveMilestone(-1);
+
+        gsap.to(progressLine, {
+          scaleY: 1,
+          transformOrigin: 'center top',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: timeline,
+            start: 'top 68%',
+            end: 'bottom 38%',
+            scrub: 0.6,
+            invalidateOnRefresh: true,
+            onRefresh: () => {
+              syncRailToNodes();
+              milestoneThresholds = getThresholds();
+            },
+            onEnter: () => setActiveMilestone(0),
+            onLeaveBack: () => setActiveMilestone(-1),
+            onUpdate: self => {
+              let activeIndex = -1;
+              milestoneThresholds.forEach((threshold, index) => {
+                if (self.progress >= threshold - 0.015) activeIndex = index;
+              });
+              setActiveMilestone(activeIndex);
+            }
+          }
+        });
+
+        items.forEach(item => {
           const content = item.querySelector('.journey__content');
-          const fromLeft = item.classList.contains('journey__milestone--left');
 
           gsap.fromTo(content,
-            { opacity: 0.12, y: 28, x: fromLeft ? -18 : 18, filter: 'blur(3px)' },
+            { opacity: 0.16, x: 18, y: 22, filter: 'blur(2px)' },
             {
               opacity: 1,
-              y: 0,
               x: 0,
+              y: 0,
               filter: 'blur(0px)',
               ease: 'none',
               scrollTrigger: {
                 trigger: item,
                 start: 'top 88%',
-                end: 'center 64%',
-                scrub: 0.65,
+                end: 'top 62%',
+                scrub: 0.45,
               }
             }
           );
-        });
-
-        const firstItem = items[0];
-        const lastItem = items[items.length - 1];
-        const scrollStart = () => `top+=${getNodePosition(firstItem)} 68%`;
-        const scrollEnd = () => `top+=${getNodePosition(lastItem)} 68%`;
-
-        gsap.to(progressLine, {
-          scaleY: 1,
-          ease: 'none',
-          transformOrigin: 'top center',
-          scrollTrigger: {
-            trigger: lifeline,
-            start: scrollStart,
-            end: scrollEnd,
-            scrub: 0.55,
-            invalidateOnRefresh: true,
-            onEnter: () => setActiveMilestone(0),
-            onEnterBack: self => setActiveMilestone(Math.min(items.length - 1, Math.floor(self.progress * (items.length - 1)))),
-            onLeaveBack: () => setActiveMilestone(-1),
-            onUpdate: self => {
-              const activeIndex = Math.min(
-                items.length - 1,
-                Math.floor((self.progress * (items.length - 1)) + 0.025)
-              );
-              setActiveMilestone(activeIndex);
-            }
-          }
         });
       }
 
@@ -1336,6 +1423,67 @@
       /* ══════════════════════════════════════════════════════
          STAGE 08 — CONTACT REVEAL
       ══════════════════════════════════════════════════════════ */
+      function initBeyond() {
+        const section = document.querySelector('#beyond');
+        if (!section || prefersReduced) return;
+
+        gsap.from(['.beyond__title', '.beyond__intro'], {
+          y: 22,
+          opacity: 0,
+          duration: 0.85,
+          stagger: 0.1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.beyond__header',
+            start: 'top 78%',
+          }
+        });
+
+        gsap.utils.toArray('.beyond__figure').forEach((figure, index) => {
+          const frame = figure.querySelector('.beyond__image-wrap');
+          const image = figure.querySelector('img');
+          const caption = figure.querySelector('figcaption');
+          const reveal = gsap.timeline({
+            scrollTrigger: {
+              trigger: figure,
+              start: 'top 84%',
+            }
+          });
+
+          reveal
+            .from(frame, {
+              y: 26,
+              opacity: 0,
+              clipPath: 'inset(0 0 10% 0)',
+              duration: 0.9,
+              delay: index * 0.08,
+              ease: 'power3.out',
+            })
+            .from(image, {
+              scale: 1.045,
+              duration: 1.1,
+              ease: 'power3.out',
+            }, '<')
+            .from(caption, {
+              y: 10,
+              opacity: 0,
+              duration: 0.55,
+              ease: 'power2.out',
+            }, '-=0.35');
+        });
+
+        gsap.from('.beyond__notes', {
+          y: 18,
+          opacity: 0,
+          duration: 0.7,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.beyond__notes',
+            start: 'top 88%',
+          }
+        });
+      }
+
       function initContact() {
         const lines = document.querySelectorAll('.contact__headline .line-inner');
         const revealEls = document.querySelectorAll('.contact .reveal-up');
@@ -1393,15 +1541,14 @@
         });
 
         // Section titles
-        ['capabilities__title', 'projects__title', 'experience__title',
-          'services__title'].forEach(cls => {
-            const el = document.querySelector('.' + cls);
-            if (!el) return;
-            gsap.from(el, {
-              opacity: 0, y: 32, duration: 0.9, ease: 'power3.out',
-              scrollTrigger: { trigger: el, start: 'top 80%' }
-            });
+        ['capabilities__title', 'projects__title', 'services__title'].forEach(cls => {
+          const el = document.querySelector('.' + cls);
+          if (!el) return;
+          gsap.from(el, {
+            opacity: 0, y: 32, duration: 0.9, ease: 'power3.out',
+            scrollTrigger: { trigger: el, start: 'top 80%' }
           });
+        });
       }
 
       /* ══════════════════════════════════════════════════════
@@ -1470,43 +1617,6 @@
       }
 
       /* ══════════════════════════════════════════════════════
-         MOUSEMOVE PARALLAX (Hero only)
-      ══════════════════════════════════════════════════════════ */
-      function initHeroParallax() {
-        if (isTouch() || prefersReduced) return;
-
-        const portrait = document.querySelector('#hero-portrait');
-        const heroLeft = document.querySelector('.hero__left');
-        const hero = document.querySelector('.hero');
-
-        hero.addEventListener('mousemove', e => {
-          const rect = hero.getBoundingClientRect();
-          const xRel = (e.clientX / rect.width - 0.5) * 2;
-          const yRel = (e.clientY / rect.height - 0.5) * 2;
-
-          gsap.to(portrait, {
-            x: xRel * 12,
-            y: yRel * 8,
-            duration: 0.8,
-            ease: 'power2.out',
-          });
-
-          gsap.to(heroLeft, {
-            x: xRel * -5,
-            y: yRel * -3,
-            duration: 1,
-            ease: 'power2.out',
-          });
-        });
-
-        hero.addEventListener('mouseleave', () => {
-          gsap.to([portrait, heroLeft], {
-            x: 0, y: 0, duration: 1.2, ease: 'elastic.out(1, 0.5)'
-          });
-        });
-      }
-
-      /* ══════════════════════════════════════════════════════
          NAVBAR — SCROLL + ACTIVE SECTION
       ══════════════════════════════════════════════════════════ */
       function initNav() {
@@ -1526,7 +1636,7 @@
         }, { passive: true });
 
         // Active section detection
-        const sections = ['about', 'skills', 'projects', 'experience', 'journey', 'contact'];
+        const sections = ['about', 'skills', 'projects', 'journey', 'contact'];
         sections.forEach(id => {
           const el = document.querySelector('#' + id);
           if (!el) return;
@@ -1601,7 +1711,9 @@
       /* ══════════════════════════════════════════════════════
          INIT ALL
       ══════════════════════════════════════════════════════════ */
-      function init() {
+      async function init() {
+        initTheme();
+        await initPreloader();
         initNav();
         initMobileMenu();
         initEntrance();
@@ -1610,15 +1722,15 @@
         initMarquee();
         initProjects();
         initProjectReveal();
-        initExperience();
         initJourney();
         initServices();
+        initBeyond();
         initContact();
         initGenericReveals();
         initCursor();
         initMagnetic();
-        initHeroParallax();
         initBackToTop();
+        ScrollTrigger.refresh();
       }
 
       // Run after DOM is ready
